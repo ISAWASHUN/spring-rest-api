@@ -5,7 +5,6 @@ public class Item {
   private String itemName;
   private String itemCategory;
 
-  // (int, String, String) コンストラクタの追加
   public Item(int itemId, String itemName, String itemCategory) {
     this.itemId = itemId;
     this.itemName = itemName;
