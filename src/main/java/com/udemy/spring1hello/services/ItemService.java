@@ -33,4 +33,8 @@ public class ItemService {
       }
     }
   }
+
+  public void deleteItem(String itemId) {
+    allItems.removeIf(item -> item.getItemId() == itemId);
+  }
 }

@@ -38,4 +38,9 @@ public class ItemController {
     ) {
       itemService.updateItem(id, item);
   }
+
+  @GetMapping("items/{id}")
+  public void deleteItem(@PathVariable String itemId) {
+    itemService.deleteItem(itemId);
+  }
 }
