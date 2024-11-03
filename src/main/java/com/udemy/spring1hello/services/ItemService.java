@@ -23,4 +23,14 @@ public class ItemService {
   public void addItem(Item item) {
     allItems.add(item);
   }
+
+  public void updateItem(int id, Item item) {
+    for (int i = 0; i < allItems.size(); i++) {
+      Item currentItem = allItems.get(i);
+      if (currentItem.getItemId() == id) {
+        allItems.set(i, item);
+        return;
+      }
+    }
+  }
 }
