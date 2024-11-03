@@ -7,6 +7,7 @@ import com.udemy.spring1hello.services.ItemService;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -39,7 +40,7 @@ public class ItemController {
       itemService.updateItem(id, item);
   }
 
-  @GetMapping("items/{id}")
+  @DeleteMapping("items/{id}")
   public void deleteItem(@PathVariable String itemId) {
     itemService.deleteItem(itemId);
   }
