@@ -1,21 +1,28 @@
 package com.udemy.spring1hello.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity(name = "m_item")
 public class Item {
-  private int itemId;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long itemId;
   private String itemName;
   private String itemCategory;
 
-  public Item(int itemId, String itemName, String itemCategory) {
-    this.itemId = itemId;
+  public Item(String itemName, String itemCategory) {
     this.itemName = itemName;
     this.itemCategory = itemCategory;
   }
 
-  public int getItemId() {
+  public Long getItemId() {
     return itemId;
   }
 
-  public void setItemId(int itemId) {
+  public void setItemId(Long itemId) {
     this.itemId = itemId;
   }
 
