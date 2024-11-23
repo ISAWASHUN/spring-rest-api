@@ -1,6 +1,8 @@
 package com.udemy.spring1hello.controller;
 
 import org.springframework.web.bind.annotation.RestController;
+
+import com.udemy.spring1hello.exception.ItemNotFoundException;
 import com.udemy.spring1hello.models.Item;
 import com.udemy.spring1hello.services.ItemService;
 
@@ -14,9 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-
-
-
 @RestController
 public class ItemController {
   @Autowired
@@ -25,6 +24,11 @@ public class ItemController {
   @GetMapping("/items")
   public List<Item> getAllItems() {
     return itemService.getAllItems();
+  }
+
+  @GetMapping("/items/{itemId}")
+  public Item getItem(@PathVariable("itemId") Long itemId) {
+    return itemService.getItem(itemId).orElseThrow(() -> new ItemNotFoundException(itemId));
   }
 
   @PostMapping("/items")
